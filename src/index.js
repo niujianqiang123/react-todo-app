@@ -4,11 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RoomProvider } from "./liveblocks.config";
+import { LiveList } from "@liveblocks/client";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RoomProvider id="react-todo-app">
+    <RoomProvider
+      id="react-todo-app"
+      initialStorage={{ todos: new LiveList() }}
+    >
       <App />
     </RoomProvider>
   </React.StrictMode>
